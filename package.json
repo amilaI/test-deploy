@@ -1,0 +1,27 @@
+{
+  "name": "Project-Squadra",
+  "version": "0.1.0",
+  "description": "Project-NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://amilaShashin@bitbucket.org/amilaShashin/testsqudra.git"
+  },
+  "dependencies": {
+    "connect": "2.13.0",
+    "express": "^3.4.8",
+    "jade": ">= 0.0.1",
+    "logfmt": "^0.21.0"
+  },
+  "keywords": [
+    "node.js",
+    "eclipse",
+    "nodeclipse"
+  ],
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Squadra -Official Site</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+
+	<script src="js/modernizr.custom.js"></script>
+
+	<!-- Countdown timer and other animations -->
+	<script src="js/jquery.countdown.js"></script>
+<script>
+
+$(document).ready(function(){
+
+		
+
+
+		function calcDate(date1,date2) {
+		   var datadiff = Math.abs(date1 - date2) / 1000;
+
+		   // calculate (and subtract) whole days
+		   var days = Math.floor(datadiff / 86400);
+		   datadiff -= days * 86400;
+
+		   // calculate (and subtract) whole hours
+		   var hours = Math.floor(datadiff / 3600) % 24;
+		   datadiff -= hours * 3600;
+
+		  // calculate (and subtract) whole minutes
+		  var minutes = Math.floor(datadiff / 60) % 60;
+		  datadiff -= minutes * 60;
+
+		 // what's left is seconds
+		 var seconds = Math.floor(datadiff % 60);  
+		 //var message = " ";
+		//message += days + " days " ;
+		// message += hours + " hours ";
+		 //message += minutes + " minutes \n";
+		 //message += seconds + " seconds \n";
+		 var ts = new Date(Date.UTC(2014, days, hours, minutes))
+		 return ts
+		 }
+
+	/* ---- Countdown timer ---- */
+		var today = new Date();
+		var enddate = new Date(2014,05,01);
+	$('#counter').countdown({
+	
+		
+	
+		timestamp :  calcDate(enddate,today)
+	});
+
+
+	/* ---- Animations ---- */
+
+	$('#links a').hover(
+		function(){ $(this).animate({ left: 3 }, 'fast'); },
+		function(){ $(this).animate({ left: 0 }, 'fast'); }
+	);
+
+	$('footer a').hover(
+		function(){ $(this).animate({ top: 3 }, 'fast'); },
+		function(){ $(this).animate({ top: 0 }, 'fast'); }
+	);
+
+
+	/* ---- Using Modernizr to check if the "required" and "placeholder" attributes are supported ---- */
+
+	if (!Modernizr.input.placeholder) {
+		$('.email').val('Input your e-mail address here...');
+		$('.email').focus(function() {
+			if($(this).val() == 'Input your e-mail address here...') {
+				$(this).val('');
+			}
+		});
+	}
+
+	// for detecting if the browser is Safari
+	var browser = navigator.userAgent.toLowerCase();
+
+	if(!Modernizr.input.required || (browser.indexOf("safari") != -1 && browser.indexOf("chrome") == -1)) {
+		$('form').submit(function() {
+			$('.popup').remove();
+			if(!$('.email').val() || $('.email').val() == 'Input your e-mail address here...') {
+				$('form').append('<p class="popup">Please fill out this field.</p>');
+				$('.email').focus();
+				return false;
+			}
+		});
+		$('.email').keydown(function() {
+			$('.popup').remove();
+		});
+		$('.email').blur(function() {
+			$('.popup').remove();
+		});
+	}
+
+
+});
+		</script>
+			<link rel="stylesheet" href="fonts/stylesheet.css">
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			
+			
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	
+		<style>
+		
+		#main-counter {
+	position: relative;
+	width: 700px;
+	
+	
+}
+#counter {
+	width: 1600px;
+	height: 200px;
+	/*margin: 55px auto 0 auto;*/
+	font-family: 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
+	font-size: 100px;
+	color: #272727;
+	text-shadow: 0 1px 0 #fff;
+	overflow: hidden;
+}
+
+.countDays, .countHours, .countMinutes, .countSeconds {
+   padding-top: 27px; 
+	float: left;
+	width: 102px;
+	height: 138px;
+	padding-left: 10px;
+	background: #e7e7e7;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.1)), to(rgba(0,0,0,.07)));
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,.07));
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,.07)); 
+	background-image: -ms-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,.07)); 
+	background-image: -o-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,.07));
+	background-image: linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,.07));
+	border: 1px solid #ccc;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow:
+		0 2px 3px 0 rgba(255,255,255,.2) inset,
+		0 2px 2px 0 rgba(0,0,0,.1);
+	-webkit-box-shadow:
+		0 2px 3px 0 rgba(255,255,255,.2) inset,
+		0 2px 2px 0 rgba(0,0,0,.1);
+	box-shadow:
+		0 2px 3px 0 rgba(255,255,255,.2) inset,
+		0 2px 2px 0 rgba(0,0,0,.1);
+}
+		.points {
+	float: left;
+	width: 40px;
+	margin: 0;
+	font-family: Georgia, serif;
+	font-size: 44px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 138px;
+	text-shadow: none;
+}
+
+.position {
+	position: relative;
+	float: left;
+	width: 35px;
+	height: 63px;
+	margin: 8px 0 0 0;
+}.digit {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.boxName {
+	float: left;
+	width: 80px;
+	margin: -5px 0 0 7px;
+	font-size: 36px;
+	color: #a6a6a6;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.Hours { margin-left: 5px; }
+.Seconds { margin-left: 2px; }
+.main.style2 {
+padding: 1em 0 1em 0;
+overflow: hidden;
+}
+		</style>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" style="background: black;">
+
+				<!-- Logo -->
+					<h1 id="logo"><a href="#" style=" color: rgb(236, 236, 236); ">Squadra - by Black Wings - Official Web Site (Under Construction)</a></h1>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" style=" color: rgb(236, 236, 236); ">Home</a></li>
+							<!--<li><a href="#one">Getting Ready </a></li>
+							<li><a href="#two">Who Are We</a></li>
+							<li><a href="#work">Our Work</a></li>
+							<li><a href="#contact">Contact Us</a></li>-->
+						</ul>
+					</nav>
+
+			</header>
+			
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
+				<div class="content container small">
+					<header>
+						<h2>We Are Rising! </h2>
+					</header>
+					<p>Welcome to <strong>Squadra</strong>.'The' Official Web Site of <strong>Team-Black Wings</strong>
+					and We are coming soon</p>
+					<!--<footer>
+						<a href="#one" class="button style2 down">More</a>
+					</footer>-->
+				</div>
+				<div id="main-counter" style=" left: 29%; ">
+							<div id="counter"></div>
+				</div>
+			</section>
+				<section id="two" class="main style2 " style="background: rgb(29, 28, 26);">
+			<div class="content box style2">
+					<header>
+						<h2 style="color: rgb(245, 224, 116);">Team Memebers</h2>
+					</header>
+					<p style="color: rgb(255, 252, 239);">Sachith Senarathne		<br>			Lakshitha Warnakulasooriya		<br>				Piyum Rangana		<br>				Amila Iddamalgoda</p>
+				</div>
+
+			</section>
+			
+		<!-- Work -->
+			<section id="work" class="main">
+				
+			</section>
+			
+		<!-- Contact -->
+			<section id="contact" class="main ">
+			
+			</section>
+			
+	
+	
+	
+		<!-- Footer -->
+			<footer id="footer">
+			
+				<!--
+				     Social Icons
+				     
+				     Use anything from here: http://fortawesome.github.io/Font-Awesome/cheatsheet/)
+				-->
+					<ul class="actions">
+						<li><a href="#" class="fa solo fa-twitter"><span>Twitter</span></a></li>
+						<li><a href="#" class="fa solo fa-facebook"><span>Facebook</span></a></li>
+						<li><a href="#" class="fa solo fa-google-plus"><span>Google+</span></a></li>
+				
+					</ul>
+
+				<!-- Menu -->
+					<ul class="menu">
+						<li>&copy; Black Wings</li>
+						<li> <a href="#">Sqadra</a></li>
+					</ul>
+			
+			</footer>
+
+	</body>
+</html>
