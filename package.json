@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://amilaShashin@bitbucket.org/amilaShashin/testsqudra.git"
+    "url": "https://github.com/amilaI/test-deploy.git"
   },
   "dependencies": {
     "connect": "2.13.0",
